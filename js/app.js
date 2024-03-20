@@ -13,15 +13,8 @@ const vipSchedule = vipTable.map((guestName, i) => {
     const guestSeat = i + 1;
     // console.log(guestSeat);
 
-    /*
-    return {
-        nomeTavolo:'Tavolo VIP',
-        nomeOspite: guestName,
-        posto: guestSeat
-    };
-    */
-   return vipTableSeats('Tavolo VIP', guestName, guestSeat);
-   
+    return vipTableSeats('Tavolo VIP', guestName, guestSeat);
+
 })
 console.log(vipSchedule)
 
@@ -41,6 +34,7 @@ function vipTableSeats(table, guest, position) {
 
 
 console.log('QUI FINISCE LO SNACK 1');
+//------------------------------------------------------
 console.log('QUI INIZIA LO SNACK 2');
 
 const newClassroom = [];
@@ -57,34 +51,33 @@ newClassroom.push(student213, student110, student250, student145, student196, st
 console.log(newClassroom)
 
 const studentsvotesOver70 = [];
+const studentsIdOver120OfOver70 = [];
 
 for (let i = 0; i < newClassroom.length; i++) {
-    
+
     if (newClassroom[i].grades >= 70) {
         studentsvotesOver70.push(newClassroom[i])
     }
 }
-console.log('Studenti con grades over 70', studentsvotesOver70);
-const studentsIdOver120OfOver70 = [];
 
 for (let i = 0; i < studentsvotesOver70.length; i++) {
     
     if (studentsvotesOver70[i].id >= 120) {
         studentsIdOver120OfOver70.push(studentsvotesOver70[i])
     }
+    
 }
+       
+console.log('Studenti con grades over 70', studentsvotesOver70);
+
 console.log('Studenti con id over 120 tra gli studenti con grades over 70', studentsIdOver120OfOver70);
 
 
-
-
-
-
-
-
-
+// funzioni
 
 function studentSchedule(id, name, sumVotes) {
+
+
     const studentPlate = {
         id: id,
         nome: name.toUpperCase(),
@@ -93,17 +86,63 @@ function studentSchedule(id, name, sumVotes) {
     return studentPlate
 }
 
+console.log('QUI FINISCE LO SNACK 2');
+//------------------------------------------------------
+console.log('QUI INIZIA LO SNACK 3');
+
+const bikesArray = [];
+
+const bikeAtala = bikeScheduleElement('Atala', 1100);
+const bikeBianchi = bikeScheduleElement('Bianchi', 950);
+const bikeColnago = bikeScheduleElement('Colnago', 960)
+const bikeLombardo = bikeScheduleElement('Lombardo', 1050)
+const bikePinarello = bikeScheduleElement('Pinarello', 1200);
+
+bikesArray.push(bikeAtala, bikeBianchi, bikeColnago, bikeLombardo, bikePinarello);
+console.log(bikesArray)
+
+let bikeMinWeight;
+let indexMinWeight;
+
+for (let i = 0; i < bikesArray.length; i++) {
+    bikeElement = bikesArray[i];
+    const { weight } = bikeElement;
+
+    if (i === 0) {
+        bikeMinWeight = weight;
+        indexMinWeight = 0;
+    } else if (weight < bikeMinWeight) {
+        bikeMinWeight = weight;
+        indexMinWeight = i;
+    }
+
+    
+}
+
+console.log(indexMinWeight);
+
+const lighterBike = bikesArray[indexMinWeight];
+console.log(lighterBike);
+
+
+// Funzioni
+function bikeScheduleElement(name, weight) {
 
 
 
 
 
 
+// funzioni
+    return {
+        name: name,
+        weight : weight,
+    }
+}
 
-
-
-
-
+console.log('QUI FINISCE LO SNACK 3');
+//------------------------------------------------------
+console.log('QUI INIZIA LO SNACK 4');
 
 
 
