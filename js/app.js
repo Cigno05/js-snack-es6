@@ -192,6 +192,7 @@ console.log(nameFoulsString);
 
 
 
+
 // Funzioni
 function TeamScheduleElement(name, points, fouls) {
 
