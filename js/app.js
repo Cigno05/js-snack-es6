@@ -3,7 +3,7 @@ console.log('JS funziona');
 console.log('QUI INIZIA LO SNACK 1');
 
 const vipTable = ['Brad Pitt', 'Johnny Depp', 'Lady Gaga', 'Cristiano Ronaldo', 'Georgina Rodriguez', 'Chiara Ferragni', 'Fedez', 'George Clooney', 'Amal Clooney', 'Maneskin']
-// console.log(vipTable)
+console.log(vipTable)
 let guestName;
 let guestSeat;
 
@@ -101,39 +101,30 @@ const bikePinarello = bikeScheduleElement('Pinarello', 1200);
 bikesArray.push(bikeAtala, bikeBianchi, bikeColnago, bikeLombardo, bikePinarello);
 console.log(bikesArray)
 
-let bikeMinWeight;
-let indexMinWeight;
+let bikeMinWeight = bikesArray[0]; // il primo paragone è con la prima bici
+// let indexMinWeight;
 
-for (let i = 0; i < bikesArray.length; i++) {
+for (let i = 1; i < bikesArray.length; i++) { // il ciclo parte da 1 e no da 0 perchè la prima è il termine di paragone iniziale
     bikeElement = bikesArray[i];
-    const { weight } = bikeElement;
-
-    if (i === 0) {
-        bikeMinWeight = weight;
-        indexMinWeight = 0;
-    } else if (weight < bikeMinWeight) {
-        bikeMinWeight = weight;
-        indexMinWeight = i;
+    
+    if (bikeElement.weight < bikeMinWeight.weight) {
+        bikeMinWeight = bikeElement;
     }
 
     
 }
 
-console.log(indexMinWeight);
+console.log(bikeMinWeight);
 
-const lighterBike = bikesArray[indexMinWeight];
-console.log(lighterBike);
+const {name, weight} = bikeMinWeight //destructuring object
+
+
+console.log(`La bicicletta con il minor peso é marcata ${name} e ha un peso di ${weight}g`);
 
 
 // Funzioni
 function bikeScheduleElement(name, weight) {
 
-
-
-
-
-
-// funzioni
     return {
         name: name,
         weight : weight,
@@ -144,6 +135,34 @@ console.log('QUI FINISCE LO SNACK 3');
 //------------------------------------------------------
 console.log('QUI INIZIA LO SNACK 4');
 
+const teamsLeague = [];
+
+
+const lazio = TeamScheduleElement('Lazio', 0,0);
+const inter = TeamScheduleElement('Inter', 0, 0);
+const juve = TeamScheduleElement('Juventus', 0, 0);
+const milan = TeamScheduleElement('Milan', 0, 0);
+const bologna = TeamScheduleElement('Bologna', 0, 0);
+
+teamsLeague.push(lazio, inter, juve, milan, bologna);
+console.log(teamsLeague)
+
+
+teamsLeague.forEach((team) => {
+    team.fouls = random(50);
+    team.points = random(100)
+})
+
+const nameFoulsString = teamsLeague.map((team) => {
+	const { name, fouls } = team
+	return `La squadra ${name} ha subito ${fouls} falli`
+})
+
+// const nameFoulsString = teamsLeague.map(({name, fouls}) => {
+//     return `La squadra ${name} ha subito ${fouls} falli`
+// })
+
+console.log(nameFoulsString);
 
 
 
@@ -160,6 +179,32 @@ console.log('QUI INIZIA LO SNACK 4');
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Funzioni
+function TeamScheduleElement(name, points, fouls) {
+
+    return {
+        name: name,
+        points: points,
+        fouls: fouls,
+    }
+}
+
+function random(max) {
+    return Math.floor(Math.random() * max) + 1;
+}
 
 
 
